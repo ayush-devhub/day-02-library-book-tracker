@@ -16,7 +16,9 @@ public class Library {
 
     public boolean checkoutBook(String isbn){
         for (Book book : books) {
-            if (book.getIsbn() == isbn && book.isAvailable()){
+            if (book.getIsbn().equals(isbn) && book.isAvailable()){
+                book.setAvailable(false);
+                System.out.println("Book with isbn " + isbn + " checkout successful");
                 return true;
             }
         }
@@ -25,7 +27,9 @@ public class Library {
 
     public boolean returnBook(String isbn){
         for (Book book : books) {
-            if (book.getIsbn() == isbn && !book.isAvailable()){
+            if (book.getIsbn().equals(isbn) && !book.isAvailable()){
+                book.setAvailable(true);
+                System.out.println("Book with isbn " + isbn + " returned successfully");
                 return true;
             }
         }

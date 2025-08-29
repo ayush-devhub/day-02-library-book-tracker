@@ -39,7 +39,7 @@ public class LibraryApp {
                 author = scanner.nextLine();
                 System.out.print("Enter ISBN: ");
                 isbn = scanner.nextLine();
-                library.addBook(new Book(isbn, author, title));
+                library.addBook(new Book(title, author, isbn));
                 System.out.println("Book added successfully!");
                 break;
             }
