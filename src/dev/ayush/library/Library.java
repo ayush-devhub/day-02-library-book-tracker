@@ -1,12 +1,13 @@
 package dev.ayush.library;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
     private List<Book> books;
 
-    public Library(List<Book> books) {
-        this.books = books;
+    public Library() {
+        books = new ArrayList<>();
     }
 
     public void addBook(Book book){
@@ -32,18 +33,26 @@ public class Library {
     }
 
     public void listAvailableBooks(){
-        for (Book book : books) {
-            if (book.isAvailable()){
-                System.out.println(book);
+        if (!books.isEmpty()){
+            for (Book book : books) {
+                if (book.isAvailable()){
+                    System.out.println(book);
+                }
             }
+        }else {
+            System.out.println("No books available!");
         }
     }
 
     public void listCheckedOutBooks(){
-        for (Book book : books) {
-            if (!book.isAvailable()){
-                System.out.println(book);
+        if (!books.isEmpty()){
+            for (Book book : books) {
+                if (!book.isAvailable()){
+                    System.out.println(book);
+                }
             }
+        }else {
+            System.out.println("No books available in the library.");
         }
     }
 }
